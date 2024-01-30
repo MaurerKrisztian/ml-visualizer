@@ -1,2 +1,3 @@
-# ml-visualizer
-Visualzie &amp; interact with ML models training process on web
+# ML visualizer
+
+Visualize & interact with ML models training process on web.
