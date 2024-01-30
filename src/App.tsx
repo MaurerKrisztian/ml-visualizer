@@ -1,9 +1,8 @@
-import LinearRegressionComponent from './components/LinearRegressionComponent';
+import LinearRegressionComponent from './components/linear-regression/LinearRegressionComponent.tsx';
 
 function App() {
     return (
         <div className="App">
-            <h1>Simple Linear Regression Demo</h1>
             <LinearRegressionComponent />
         </div>
     );

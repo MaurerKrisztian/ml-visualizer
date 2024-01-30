@@ -1,7 +1,8 @@
 import React, { useState, useRef } from 'react';
 import Chart from 'chart.js/auto';
-import { LinearRegression } from "../lib/models/linear-regression.ts";
-import { sleep } from "../lib/utils/utils.ts";
+import { LinearRegression } from "../../lib/models/linear-regression.ts";
+import { sleep } from "../../lib/utils/utils.ts";
+import styles from './LinearRegressionComponent.module.css'; // Import the CSS module
 
 const LinearRegressionComponent = () => {
     // Sample Data
@@ -12,6 +13,8 @@ const LinearRegressionComponent = () => {
 
     const chartRef = useRef<HTMLCanvasElement>(null);
     const chartInstanceRef = useRef<Chart | null>(null);
+    const [slope, setSlope] = useState<number | null>(null);
+    const [intercept, setIntercept] = useState<number | null>(null);
 
     const updateChart = (x: number[], y: number[], lr: LinearRegression) => {
         if (chartRef.current) {
@@ -67,15 +70,22 @@ const LinearRegressionComponent = () => {
             updateChart(x, y, lr);
 
             setErrorRate(lr.calculateError(x, y));
+
+            setSlope(lr.slope);
+            setIntercept(lr.intercept);
             await sleep(555)
         }
     };
 
     return (
-        <div>
-            <canvas ref={chartRef} width="900" height="700"></canvas>
+        <div className={styles.container}>
+
+            <h1>Simple Linear Regression Demo</h1>
+            <canvas ref={chartRef} width="600" height="400"></canvas>
             <button onClick={handleTrainModel}>Train Model</button>
             {errorRate !== null && <div>Error Rate: {errorRate.toFixed(2)}</div>}
+            {slope !== null && intercept !== null &&
+                <div>Regression Line Equation: y = {slope.toFixed(2)}x + {intercept.toFixed(2)}</div>}
         </div>
     );
 };
