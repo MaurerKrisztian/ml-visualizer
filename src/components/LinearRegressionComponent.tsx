@@ -39,6 +39,9 @@ const LinearRegressionComponent = () => {
                     }]
                 },
                 options: {
+                    animation: {
+                        duration: 0
+                    },
                     scales: {
                         x: {
                             type: 'linear',
