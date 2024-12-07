@@ -7,6 +7,7 @@ import { Checkbox } from '@/components/ui/checkbox.tsx';
 import CalculateSlopes from "@/components/SlopeCalculation.tsx";
 import MatrixMultiplication from "@/components/MatrixRepresentation.tsx";
 import { Button } from './ui/button.tsx';
+import IntroSection from "@/components/IntroSection.tsx";
 
 const ActivationFunctions = {
     'ReLU': x => Math.max(0, x),
@@ -107,17 +108,7 @@ export default function WeightSumVisualization() {
 
     return (
         <Card className="p-4 max-w-6xl">
-            <div className="mb-4 bg-gradient-to-r from-blue-50 to-purple-50 rounded-lg p-4">
-                <h2 className="text-2xl font-bold mb-2">Inside a Neural Network Neuron</h2>
-                <p className="text-gray-700">A neuron is the basic computational unit of a neural network. It:</p>
-                <ul className="list-disc list-inside mt-2 space-y-1 text-gray-700">
-                    <li>Takes multiple inputs (like features from your data)</li>
-                    <li>Weighs each input's importance using learned weights</li>
-                    <li>Combines them into a single number (weighted sum)</li>
-                    <li>Transforms this number using an activation function</li>
-                </ul>
-            </div>
-
+            <IntroSection></IntroSection>
             <div className="grid grid-cols-2 gap-4">
                 <div className="space-y-4">
                     <div className="bg-blue-50 rounded-lg p-3">
@@ -282,13 +273,13 @@ export default function WeightSumVisualization() {
                                     <CartesianGrid strokeDasharray="3 3"/>
                                     <XAxis dataKey="x" label={{value: 'Weighted Sum', position: 'bottom'}}/>
                                     <YAxis label={{value: 'Activated Output', angle: -90, position: 'left'}}/>
-                                    <Tooltip content={<CustomTooltip />} />
+                                    <Tooltip content={<CustomTooltip/>}/>
                                     <Line
                                         type="monotone"
                                         dataKey="output"
                                         stroke="#ff7300"
                                         dot={(props) => {
-                                            const { payload, cx, cy } = props;
+                                            const {payload, cx, cy} = props;
                                             return payload.isCurrentPoint ? (
                                                 <circle
                                                     key={`dot-${cx}-${cy}`}
