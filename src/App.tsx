@@ -1,11 +1,3 @@
-import LinearRegressionComponent from './components/linear-regression/LinearRegressionComponent.tsx';
-
-function App() {
-    return (
-        <div className="App">
-            <LinearRegressionComponent />
-        </div>
-    );
-}
-
-export default App;
+import "./App.css";
+import WeightSumVisualization from "./components/WeightSumVisualization.tsx";
+export default WeightSumVisualization;
