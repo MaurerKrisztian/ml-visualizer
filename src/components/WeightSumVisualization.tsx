@@ -301,14 +301,40 @@ export default function WeightSumVisualization() {
 
                     <div className="bg-gray-50 rounded-lg p-3">
                         <h3 className="font-semibold mb-2">Why Activation Functions?</h3>
-                        <ul className="list-disc list-inside text-sm text-gray-700">
-                            <li><strong>ReLU:</strong> Most common, helps network learn non-linear patterns</li>
-                            <li><strong>Sigmoid:</strong> Squishes output to 0-1, good for probabilities</li>
-                            <li><strong>Tanh:</strong> Like sigmoid but ranges from -1 to 1</li>
-                            <li><strong>Linear:</strong> No transformation, used for regression problems</li>
-                            <li><strong>LeakyReLU:</strong> Variant of ReLU that allows small negative values</li>
+                        <p className="text-sm text-gray-700 mb-2">
+                            Activation functions are crucial for introducing non-linearity into neural networks,
+                            enabling them to learn and represent complex patterns. Here are some common activation
+                            functions and their equations:
+                        </p>
+                        <ul className="list-disc pl-5 text-sm text-gray-700">
+                            <li className="mb-2">
+                                <strong>ReLU (Rectified Linear Unit):</strong>
+                                <code> f(x) = max(0, x)</code>
+                                <p className="ml-4">Most common, helps the network learn non-linear patterns by zeroing
+                                    out negative values.</p>
+                            </li>
+                            <li className="mb-2">
+                                <strong>Sigmoid:</strong>
+                                <code> f(x) = 1 / (1 + e<sup>-x</sup>)</code>
+                                <p className="ml-4">Squishes output to the range (0, 1), often used for
+                                    probabilities.</p>
+                            </li>
+                            <li className="mb-2">
+                                <strong>Tanh (Hyperbolic Tangent):</strong>
+                                <code> f(x) = (e<sup>x</sup> - e<sup>-x</sup>) / (e<sup>x</sup> + e<sup>-x</sup>)</code>
+                                <p className="ml-4">Similar to Sigmoid but ranges from (-1, 1), centering the outputs
+                                    around zero.</p>
+                            </li>
+                            <li className="mb-2">
+                                <strong>Linear:</strong>
+                                <code> f(x) = x</code>
+                                <p className="ml-4">No transformation, typically used in the output layer for regression
+                                    problems.</p>
+                            </li>
                         </ul>
                     </div>
+
+
                 </div>
             </div>
         </Card>
